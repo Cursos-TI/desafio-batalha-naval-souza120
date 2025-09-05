@@ -1,18 +1,32 @@
 #include <stdio.h>
 
 int main() {
-    int tabuleiro[5][5] = {0};
+    int tabuleiro[10][10] = {0};
     int i, j;
 
-    // Navio horizontal (linha 1, colunas 0 a 3)
-    for (j = 0; j < 4; j++) {
+    // Navio horizontal
+    for (j = 0; i < 4; j++) {
         tabuleiro[1][j] = 3;
-        printf("Navio horizontal em: (%d,%d)\n", 1, j);
     }
-    // Navio vertical (coluna 4, linhas 0 a 3)
+    // Navio vertical
     for (i = 0; i < 4; i++) {
         tabuleiro[i][4] = 3;
-        printf("Navio vertical em: (%d,%d)\n", i, 4);
+    }
+    // Navio diagonal principal
+    for (i =0; i < 4; i++) {
+        tabuleiro[i][i] = 3;
+    }
+    // Navio diagonal secundária
+    for (i = 0; i < 4; i++) {
+        tabuleiro[i][9 - i] = 3;
+    }
+    //Exibe o tabuleiro
+    printf("\nTabuleiro 10x10:\n");
+    for (i = 0; i < 10; i++) {
+        for (j = 0; j < 10; j++) {
+            printf("%d", tabuleiro[i][j]);
+        }
+        printf("\n");
     }
     return 0;
 }
